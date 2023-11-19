@@ -1,0 +1,14 @@
+ImageIcon centerImageIcon = new ImageIcon("C:\\Users\\User\\OneDrive\\Pictures\\NanoWar Wallpaper.png"); // Replace with the path to your image
+        JLabel centerImageLabel = new JLabel(centerImageIcon);
+
+        // Center the image in the frame
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1; // Change the row index based on your layout
+        logo_window.add(centerImageLabel, gbc);
+
+
+        JLabel imageLabel = new JLabel();
+                ImageIcon imageIcon = loadImageIcon("C:\\Users\\User\\OneDrive\\Pictures\\NanoWar Wallpaper.png");
+                imageLabel.setIcon(imageIcon);
+                logo_window.add(imageLabel, BorderLayout.CENTER);
