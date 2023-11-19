@@ -22,7 +22,28 @@ public class Chess_Input extends MouseAdapter{
         }else if (!chess_board.getIs_white_turn() && !chess_pieces_XY.is_white) {
             chess_board.moving_chess_piece = chess_pieces_XY;
         }
+
+        if (chess_pieces_XY != null) {
+            if (chess_board.getIs_white_turn() && chess_pieces_XY.is_white ||
+                    !chess_board.getIs_white_turn() && !chess_pieces_XY.is_white) {
+                highlightPossibleMoves(chess_pieces_XY);
+            }
+        }
     }
+
+    private void highlightPossibleMoves(Chess_Pieces chessPiece) {
+        for (int r = 0; r < chess_board.row; r++) {
+            for (int c = 0; c < chess_board.col; c++) {
+                if (chess_board.is_Valid_Move(new Moves(chess_board, chessPiece, c, r))) {
+                    chess_board.repaint(c * chess_board.chess_board_tile_size,
+                            r * chess_board.chess_board_tile_size,
+                            chess_board.chess_board_tile_size,
+                            chess_board.chess_board_tile_size);
+                }
+            }
+        }
+    }
+
     @Override
     public void mouseDragged(MouseEvent e) {
         if(chess_board.moving_chess_piece != null){
