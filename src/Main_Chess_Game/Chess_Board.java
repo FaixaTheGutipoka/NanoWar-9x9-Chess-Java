@@ -156,7 +156,7 @@ public class Chess_Board extends JPanel {
 
         for(int r=0; r<row; r++) {
             for (int c = 0; c <col; c++) {
-                graphics2D.setColor((c + r) % 2 == 0 ? new Color(255, 197, 156) : new Color(119, 44, 0, 199));
+                graphics2D.setColor((c + r) % 2 == 0 ? new Color(212, 228, 255, 228) : new Color(0, 50, 86, 255));
                 graphics2D.fillRect(c * chess_board_tile_size, r * chess_board_tile_size, chess_board_tile_size, chess_board_tile_size);
             }
         }
@@ -166,7 +166,7 @@ public class Chess_Board extends JPanel {
             for (int r = 0; r < row; r++) {
                 for (int c = 0; c < col; c++) {
                     if (is_Valid_Move(new Moves(this, moving_chess_piece, c, r))) {
-                        graphics2D.setColor(new Color(255, 255, 0, 192));
+                        graphics2D.setColor(new Color(255, 247, 0, 178));
                         graphics2D.fillRect(c*chess_board_tile_size, r*chess_board_tile_size, chess_board_tile_size, chess_board_tile_size);
                     }
                 }

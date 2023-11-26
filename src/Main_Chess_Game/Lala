@@ -1,14 +1,35 @@
-ImageIcon centerImageIcon = new ImageIcon("C:\\Users\\User\\OneDrive\\Pictures\\NanoWar Wallpaper.png"); // Replace with the path to your image
-        JLabel centerImageLabel = new JLabel(centerImageIcon);
 
-        // Center the image in the frame
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 1; // Change the row index based on your layout
-        logo_window.add(centerImageLabel, gbc);
+                /*
+                logo_window.dispose();
+                JFrame loading_screen = createLoadingScreen(icon);
+                loading_screen.setVisible(true);
 
+                // Simulate loading by sleeping the main thread (replace this with your actual loading logic)
+                try {
+                    Thread.sleep(3000); // Simulate a 3-second loading time
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
 
-        JLabel imageLabel = new JLabel();
-                ImageIcon imageIcon = loadImageIcon("C:\\Users\\User\\OneDrive\\Pictures\\NanoWar Wallpaper.png");
-                imageLabel.setIcon(imageIcon);
-                logo_window.add(imageLabel, BorderLayout.CENTER);
+                // Close loading screen
+                loading_screen.dispose();
+
+                JFrame main_window = new JFrame();
+
+                main_window.setIconImage(icon.getImage());
+                main_window.setTitle("NanoWar");
+
+                // Set the background color (behind the chess board)
+                main_window.getContentPane().setBackground(new Color(45, 45, 45));
+                main_window.setLayout(new GridBagLayout());
+                main_window.setMinimumSize(new Dimension(700, 700));
+                main_window.setLocationRelativeTo(null);
+
+                Chess_Board chess_board = new Chess_Board();
+
+                // Add the chess board layout in the main_window_frame
+                main_window.add(chess_board);
+
+                main_window.setVisible(true);
+
+                 */
