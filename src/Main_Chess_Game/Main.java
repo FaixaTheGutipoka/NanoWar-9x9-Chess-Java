@@ -1,9 +1,11 @@
+//This code is incomplete, and we are working on it.
+//Open to take in people to the team for development.
+//Please contact Labiba Faiza Karim (Email: faixa.the.gutipoka@gmail.com) if interest to contribute.
+
 package Main_Chess_Game;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,56 +33,53 @@ public class Main {
 
         // Set the layout manager to FlowLayout
         logo_window.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER));
-        b.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                logo_window.dispose();
-                JFrame loading_screen = createLoadingScreen(icon);
-                loading_screen.setVisible(true);
+        b.addActionListener(e -> {
+            logo_window.dispose();
+            JFrame loading_screen = createLoadingScreen(icon);
+            loading_screen.setVisible(true);
 
-                SwingWorker<Void, Integer> worker = new SwingWorker<Void, Integer>() {
-                    @Override
-                    protected Void doInBackground() throws Exception {
-                        // Simulate a 3-second loading time
-                        for (int i = 0; i <= 100; i += 10) {
-                            Thread.sleep(300);
-                            publish(i);
-                        }
-                        return null;
+            SwingWorker<Void, Integer> worker = new SwingWorker<>() {
+                @Override
+                protected Void doInBackground() throws Exception {
+                    // Simulate a 3-second loading time
+                    for (int i = 0; i <= 100; i += 10) {
+                        Thread.sleep(300);
+                        publish(i);
                     }
+                    return null;
+                }
 
-                    @Override
-                    protected void process(java.util.List<Integer> chunks) {
-                        int progress = chunks.get(chunks.size() - 1);
-                        loading_screen.setTitle("Loading... " + progress + "%");
-                    }
+                @Override
+                protected void process(java.util.List<Integer> chunks) {
+                    int progress = chunks.get(chunks.size() - 1);
+                    loading_screen.setTitle("Loading... " + progress + "%");
+                }
 
-                    @Override
-                    protected void done() {
-                        // Close loading screen
-                        loading_screen.dispose();
-                        JFrame main_window = new JFrame();
+                @Override
+                protected void done() {
+                    // Close loading screen
+                    loading_screen.dispose();
+                    JFrame main_window = new JFrame();
 
-                        main_window.setIconImage(icon.getImage());
-                        main_window.setTitle("NanoWar");
+                    main_window.setIconImage(icon.getImage());
+                    main_window.setTitle("NanoWar");
 
-                        // Set the background color (behind the chess board)
-                        main_window.getContentPane().setBackground(new Color(45, 45, 45));
-                        main_window.setLayout(new GridBagLayout());
-                        main_window.setMinimumSize(new Dimension(700, 700));
-                        main_window.setLocationRelativeTo(null);
+                    // Set the background color (behind the chess board)
+                    main_window.getContentPane().setBackground(new Color(45, 45, 45));
+                    main_window.setLayout(new GridBagLayout());
+                    main_window.setMinimumSize(new Dimension(700, 700));
+                    main_window.setLocationRelativeTo(null);
 
-                        Chess_Board chess_board = new Chess_Board();
+                    Chess_Board chess_board = new Chess_Board();
 
-                        // Add the chess board layout in the main_window_frame
-                        main_window.add(chess_board);
+                    // Add the chess board layout in the main_window_frame
+                    main_window.add(chess_board);
 
-                        main_window.setVisible(true);
-                    }
-                };
+                    main_window.setVisible(true);
+                }
+            };
 
-                worker.execute();
-            }
+            worker.execute();
         });
         logo_window.getContentPane().add(b, BorderLayout.CENTER);
 

@@ -14,7 +14,6 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Chess_Board extends JPanel {
-    public static int move_counter = 0;
     public int chess_board_tile_size = 60;
 
     int row = 9;
@@ -42,12 +41,9 @@ public class Chess_Board extends JPanel {
     }
 
     public boolean is_Valid_Move(Moves moves){
-        if(Colour_Check(moves.piece, moves.taken_piece)||
-                (!moves.piece.is_Valid_Movement(moves.new_col,moves.new_row))||
-                (moves.piece.collision(moves.new_col, moves.new_row))) {
-            return false;
-        }
-        return true;
+        return !Colour_Check(moves.piece, moves.taken_piece) &&
+                (moves.piece.is_Valid_Movement(moves.new_col, moves.new_row)) &&
+                (!moves.piece.collision(moves.new_col, moves.new_row));
     }
     private boolean is_white_turn = true;
     public boolean getIs_white_turn() {
@@ -74,6 +70,7 @@ public class Chess_Board extends JPanel {
     }
 
     private void pawn_move(Moves moves){
+        //yes, there is duplicate code as java does not support go to statements like C/C++
         moves.piece.col = moves.new_col;
         moves.piece.row = moves.new_row;
 
