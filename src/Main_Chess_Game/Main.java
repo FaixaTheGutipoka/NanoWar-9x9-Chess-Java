@@ -19,7 +19,7 @@ public class Main {
 
         logo_window.setIconImage(icon.getImage());
         logo_window.setTitle("NanoWar: 9x9 Chess");
-        logo_window.getContentPane().setBackground(new Color(1, 31, 52));
+        logo_window.getContentPane().setBackground(new Color(1, 20, 45, 255));
         logo_window.setMinimumSize(new Dimension(700, 550));
         logo_window.setLocationRelativeTo(null);
 
@@ -65,7 +65,7 @@ public class Main {
                     main_window.setTitle("NanoWar");
 
                     // Set the background color (behind the chess board)
-                    main_window.getContentPane().setBackground(new Color(45, 45, 45));
+                    main_window.getContentPane().setBackground(new Color(38, 38, 38));
                     main_window.setLayout(new GridBagLayout());
                     main_window.setMinimumSize(new Dimension(700, 700));
                     main_window.setLocationRelativeTo(null);

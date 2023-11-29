@@ -153,7 +153,7 @@ public class Chess_Board extends JPanel {
 
         for(int r=0; r<row; r++) {
             for (int c = 0; c <col; c++) {
-                graphics2D.setColor((c + r) % 2 == 0 ? new Color(212, 228, 255, 228) : new Color(0, 50, 86, 208));
+                graphics2D.setColor((c + r) % 2 == 0 ? new Color(200, 228, 255, 200) : new Color(2, 24, 56, 231));
                 graphics2D.fillRect(c * chess_board_tile_size, r * chess_board_tile_size, chess_board_tile_size, chess_board_tile_size);
             }
         }
