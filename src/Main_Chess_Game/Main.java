@@ -53,6 +53,7 @@ public class Main {
                 protected void process(java.util.List<Integer> chunks) {
                     int progress = chunks.get(chunks.size() - 1);
                     JPanel panel = (JPanel) loading_screen.getContentPane().getComponent(0);
+
                     JProgressBar progressBar = (JProgressBar) panel.getComponent(0);
                     progressBar.setValue(progress);
 
@@ -98,7 +99,7 @@ public class Main {
 
         JPanel panel = new JPanel(new BorderLayout());
         JProgressBar progressBar = new JProgressBar();
-        progressBar.setIndeterminate(false); // Use a determinate progress bar
+        progressBar.setIndeterminate(false);
         progressBar.setStringPainted(true);
         panel.add(progressBar, BorderLayout.CENTER);
 
